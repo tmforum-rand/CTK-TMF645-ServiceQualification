@@ -1,6 +1,6 @@
 const readline = require('readline');
 const rp = require('request-promise');
-var DefaultURL = "${APIDEFAULTURL}/tmf-api/serviceQualificationManagement/v4/";
+var DefaultURL = "${APIDEFAULTURL}/tmf-api/serviceQualificationManagement/v3/";
 var schema;
 var hostname;
 var port;
@@ -100,9 +100,9 @@ function getURL(){
     
     rl.question('////////////////////////////////////////////////////////////////////////\n'+
     'What is your full API address omiting the endpoint? example:\n'+
-    'https://apictk-service-qualification-management-v4-0-0.mybluemix.net/tmf-api/serviceQualificationManagement/v4/serviceQualification\n'+
+    'https://apictk-service-qualification-management-v3-0-0.mybluemix.net/tmf-api/serviceQualificationManagement/v3/serviceQualification\n'+
     'becomes\n'+
-    'https://apictk-service-qualification-management-v4-0-0.mybluemix.net/tmf-api/serviceQualificationManagement/v4\n>', (answer) => {
+    'https://apictk-service-qualification-management-v3-0-0.mybluemix.net/tmf-api/serviceQualificationManagement/v3\n>', (answer) => {
     DefaultURL = answer;
     rl.close();
     isURLValid(answer);
@@ -114,7 +114,7 @@ function getURL(){
 function exportEnvironment(url){
 
     var fs = require('fs');
-    var environmentFile = "CTK-TMFENV-V4.0.0.postman_environment.json";    
+    var environmentFile = "CTK-TMFENV-V3.0.0.postman_environment.json";    
     var content = fs.readFileSync(environmentFile, "utf8");
     var envJson = JSON.parse(content);
     envJson.name = "TMForumR18.5";
